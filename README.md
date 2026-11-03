@@ -24,19 +24,6 @@ A ideia não é ser um sistema completo ou complexo, mas um projeto simples que 
 - Registro de vendas
 - Listagem, edição e exclusão de registros
 
----
-
-## 📋 Pré-requisitos
-
-Antes de começar, você vai precisar ter instalado:
-
-- [Java JDK 17+](https://www.oracle.com/java/technologies/downloads/)
-- [Maven](https://maven.apache.org/)
-- [PostgreSQL](https://www.postgresql.org/download/)
-- [Git](https://git-scm.com/)
-
----
-
 
 ## 🎯 Objetivo do projeto
 
