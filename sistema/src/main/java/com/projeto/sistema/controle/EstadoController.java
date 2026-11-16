@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import jakarta.validation.Valid;
 
 import java.util.Optional;
 
@@ -57,9 +58,11 @@ public class EstadoController {
     }
 
     @PostMapping("/salvarEstado")
-    public ModelAndView salvar(Estado estado, BindingResult result, RedirectAttributes attributes) {
+    public ModelAndView salvar(@Valid Estado estado, BindingResult result, RedirectAttributes attributes) {
         if(result.hasErrors()) {
-            return cadastrar(estado);
+            ModelAndView mv = cadastrar(estado);
+            mv.addObject("erro", "O preenchimento dos campos é obrigatório!");
+            return mv;
         }
 
         estadoRepositorio.saveAndFlush(estado);

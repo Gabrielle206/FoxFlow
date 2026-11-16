@@ -1,7 +1,8 @@
 package com.projeto.sistema.modelos;
 
 import jakarta.persistence.*;
-
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
@@ -13,7 +14,12 @@ public class Estado implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
 
     private Long id;
+
+    @NotBlank(message = "O nome é obrigatório")
     private String nome;
+
+    @NotBlank(message = "A sigla é obrigatória")
+    @Size(min = 2, max = 2, message = "A sigla deve ter 2 letras")
     private String sigla;
 
     public Long getId() {
